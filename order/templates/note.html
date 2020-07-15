@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% load render_table from django_tables2 %} {% load static %}
+
+
+{% block content %}
+<section>
+    <div class="container" style="border:1px solid; margin-top: 20px;">
+        <center>
+            <h4>Good Recevied Note</h4>
+        </center>
+    </div>
+</section>
+<section>
+    <div class="container">
+    <div class="row ">
+        <div class="col-6 align-items-center">
+                <h4 >Supplier: {{instance.supplier}}</h4>
+        </div>
+        <div class="col-6 ">
+                <h4 >Date: {% now "jS F Y " %}</h4>
+        </div>
+        <div class="col-6 ">
+                <h4 >OrderNo: {{instance.id}} </h4>
+        </div>
+        <div class="col-6 ">
+                <h4 >Order Title: {{instance.title}} </h4>
+        </div>
+    </div>
+</div>
+</section>
+<div class="container" style="border:1px solid; padding:20px"> 
+    <center>
+        {% render_table grnote %}
+        <h4 style="float:right">Total Amount:{{instance.total_price}}</h4>
+    </center>
+</div>
+ 
+
+<div class="container" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-6">
+            <h4>Received By:_____________________ </h4>
+        </div>
+        <div class="col-6">
+            <h4>Checked By:______________________ </h4>
+        </div>
+    </div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script>
+    window.onload = function() {
+        window.print()
+    }
+
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+</script>
+
+{% endblock %}

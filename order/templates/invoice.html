@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% load render_table from django_tables2 %} {% load static %}
+
+
+{% block content %}
+<section class="container">
+    <center>
+    <div class="row ">
+        <div class="col-6 align-items-center">
+            <h3>Company</h3><br>
+            <p>Address</p>
+            <br>
+            <p>phone #</p>
+        </div>
+        <div class="col-6 align-items-center">
+            <h2>Invoice</h2>
+            <p>Date: {% now "jS F Y " %}</p>
+            <br>
+            <p>OrderNo: {{instance.id}} </p>
+            <br>
+            <h6>Order Title: {{instance.title}}</h6>
+            <h6>Supplier: {{instance.supplier}}</h6>
+        </div>
+    </div>
+</center>
+</section>
+<section>
+<div class="container" style="border:1px solid; padding:20px"> 
+    <center>
+        {% render_table invoice %}
+        <h4 style="float:right">Total Amount: {{instance.total_price}}</h4>
+    </center>
+</div>
+ 
+
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script>
+    window.onload = function() {
+        window.print()
+    }
+
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+</script>
+
+{% endblock %}

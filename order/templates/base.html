@@ -1,0 +1,15 @@
+<!DOCTYPE html> {% load render_table from django_tables2 %} {% load static %}
+<html dir="ltr" lang="en">
+
+<head>
+    {% block head %}
+    {% include 'include/css.html' %}
+    {% endblock head %}
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+
+    {% block script%}
+    {% endblock script %}
+</body>
