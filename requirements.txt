@@ -1,7 +1,7 @@
 asgiref==3.2.10
 Babel==2.8.0
 certifi==2020.6.20
-Django==3.0.8
+Django==3.0.12
 django-easy-pdf==0.1.1
 django-tables2==2.3.1
 django-utils-six==2.0
